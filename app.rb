@@ -16,9 +16,11 @@ class App < Sinatra::Base
     params[:phrase] * params[:number].to_i
   end
   get '/:operation/:number1/:number2'  do
-    @n1=params[:number1].to_i
-    @n2=params[:number1].to_i    
-    case params[:operation]
+    do_operation(params[:operation], params[:number1].to_i, params[:number2].to_i)
+  end
+
+  def do_operation (operation, n1, n2)
+    case peration
     when "add"
       "#{n1 + n2}"
     when "subtract"
