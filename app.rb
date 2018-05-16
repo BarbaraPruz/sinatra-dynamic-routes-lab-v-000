@@ -1,7 +1,8 @@
 require_relative 'config/environment'
 
 class App < Sinatra::Base
-  # Write your code here!
+
+  # Routes
   get '/reversename/:name' do
   		params[:name].reverse
   end
@@ -10,7 +11,7 @@ class App < Sinatra::Base
     "#{@n ** 2}"
   end
   get '/say/:word1/:word2/:word3/:word4/:word5' do
-    params[:word1] +params[:word2] +params[:word3] +params[:word4] +params[:word5]
+    "{#{params[:word1]} #{params[:word2]} #{params[:word3]} #{params[:word4]} #{params[:word5]}."
   end
   get '/say/:number/:phrase' do
     params[:phrase] * params[:number].to_i
@@ -19,6 +20,7 @@ class App < Sinatra::Base
     do_operation(params[:operation], params[:number1].to_i, params[:number2].to_i)
   end
 
+  # helpers
   def do_operation (operation, n1, n2)
     case operation
     when "add"
