@@ -20,7 +20,7 @@ class App < Sinatra::Base
   end
 
   def do_operation (operation, n1, n2)
-    case peration
+    case operation
     when "add"
       "#{n1 + n2}"
     when "subtract"
